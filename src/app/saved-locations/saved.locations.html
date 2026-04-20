@@ -1,0 +1,16 @@
+<div class="main">
+    <div class="locations-container" *ngIf="savedLocations.length > 0">
+        <div *ngFor="let location of savedLocations" id="locations">
+            <div id="delete-location" (click)="deleteLocation(location.city, location.state)">X</div>
+            <button id="show-location" type="button" (click)="search(location.city, location.state)">SHOW</button>
+            {{ location?.city }}, {{ location?.state }}
+        </div>
+    </div>
+
+    <div id="location-controls">
+        <div *ngIf="savedLocations.length === 0">
+            <h1>You Have No Saved Locations</h1>
+        </div>
+        <button id="go-home" (click)="backHome()">Back</button>
+    </div>
+</div>

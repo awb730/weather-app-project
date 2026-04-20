@@ -1,0 +1,72 @@
+<div class="main-container">
+    <div class="search-container">
+        <div class="header">
+            <h3>BaeWatch</h3>
+            <a routerLink="/">Home</a>
+            <a routerLink="/saved">Saved Locations</a>
+        </div>
+        
+        <div class="input-container">
+            <div>
+                <label id="search-icon" for="search-bar">
+                    <img src="https://www.freeiconspng.com/uploads/magnifying-glass-icon-28.png" width="25" height="25" />
+                </label>
+                <input id="search-bar" type="text" [formControl]="searchControl" placeholder="Enter Location" autocomplete="off" />
+            </div>
+        </div>
+
+        <div id="suggestion-bar" *ngIf="searchControl.value !== '' && suggestions.length > 0">
+            <button type="button" *ngFor="let sugg of suggestions" (click)="selectSuggestion(sugg)">
+                {{ sugg.city }}, {{ sugg.state }}
+            </button>
+        </div>
+
+        <div class="history-container">
+            <h1>Search History</h1>
+            <ng-container *ngIf="searchHistory.length === 0; else historyList">
+                <h2>No Recent Searches</h2>
+            </ng-container>
+            <ng-template #historyList>
+                <button type="button" *ngFor="let entry of searchHistory" (click)="searchWeather(entry[0], entry[1])">
+                    <div>
+                        <p>{{ entry[0] }}, {{ entry[1] }}</p>
+                    </div>
+                </button>
+            </ng-template>
+        </div>
+
+        <div class="popular-container">
+            <h1>Popular Locations</h1>
+            <button class="img-btn" (click)="searchWeather('New York', 'New York')">
+                <img src="https://upgradedpoints.com/wp-content/uploads/2018/08/New-York-City.jpg" alt="NY" />
+                <span class="btn-label">New York, New York</span>
+            </button>
+
+            <button class="img-btn" (click)="searchWeather('Phoenix', 'Arizona')">
+                <img src="https://cdn.prod.website-files.com/683a4969614808c01cd0d378/683a4e53cca84f4da811a40b_Phoenix-cityscape_b2b0b89039603b931027eb2900b66531.jpg" alt="AZ" />
+                <span class="btn-label">Phoneix, Arizona</span>
+            </button>
+
+            <button class="img-btn" (click)="searchWeather('Seattle', 'Washington')">
+                <img src="https://www.macslist.org/wp-content/uploads/2019/02/AdobeStock_15476180.jpg" alt="WA" />
+                <span class="btn-label">Seattle, Washington</span>
+            </button>
+
+            <button class="img-btn" (click)="searchWeather('Chicago', 'Illinois')">
+                <img src="https://images.contentstack.io/v3/assets/blt06f605a34f1194ff/blt4fb48ac6a6372618/67d8fcbace729c6386ae26d2/iStock-1275755404-MOBILE-HEADER.jpg?fit=crop&disable=upscale&auto=webp&quality=60&crop=smart" alt="IL" />
+                <span class="btn-label">Chicago, Illinois</span>
+            </button>
+
+            <button class="img-btn" (click)="searchWeather('Orlando', 'Florida')">
+                <img src="https://cdn.britannica.com/07/201607-050-0B5774CB/Orlando-Florida-aerial-cityscape-towards-Eola-Lake.jpg" alt="FL" />
+                <span class="btn-label">Orlando, Florida</span>
+            </button>
+
+            <button class="img-btn" (click)="searchWeather('Los Angeles', 'California')">
+                <img src="https://www.extraspace.com/wp-content/uploads/2018/11/living-in-los-angeles.jpg" alt="CA" />
+                <span class="btn-label">Los Angeles, California</span>
+            </button>
+        </div>
+        
+    </div>
+</div>

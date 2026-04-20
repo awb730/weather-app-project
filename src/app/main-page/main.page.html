@@ -1,0 +1,86 @@
+<div class="main-page">
+  <div class="header">
+      <h3>BaeWatch</h3>
+      <a routerLink="/search">Search</a>
+      <a routerLink="/saved">Saved Locations</a>
+  </div>
+
+  <div class="control-container">
+    <div id="weather-controls">
+      <div class="save-container">
+        <button id="save" type="button" (click)="saveLocation()">
+          <img src="https://static.thenounproject.com/png/3957503-200.png" alt="Save Icon" width="50" height="50" />
+        </button>
+
+        <div id="success-message" *ngIf="isSaved">
+          <button id="del-noti" type="button" (click)="delSaveNoti()" width="25px" height="25px">X</button>
+          <h4>Successfully Saved!</h4>
+        </div>
+      </div>
+<!-- 
+      <button id="search-icon" type="button" (click)="goToSearch()">
+        <img src="https://www.freeiconspng.com/uploads/magnifying-glass-icon-28.png" alt="Search Button" width="50" height="50" />
+      </button> -->
+
+      <!-- <button id="saved-locations-icon" (click)="goToSavedLocations()">
+        <img src="https://staging.svgrepo.com/show/8335/list.svg" alt="List Icon" width="50" height="50" />
+      </button> -->
+
+      <button id="next-location" type="button" (click)="nextLocation()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Sideways_Arrow_Icon.svg" alt="Arrow Icon" width="50" height="50" />
+      </button>
+
+    </div>
+  </div>
+
+  <div class="weather-container">
+    <div>
+      <div id="weather-display">
+        <h1>{{ currCity }}, {{ currState }}</h1>
+        <h2>{{ Math.floor(((temperature - 273.15) * 9 / 5 + 32))  }}°</h2>
+        <p>{{ condition }}</p>
+        <p>Humidty: {{ humidity }}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="weather-info">
+    <div>
+      <h1>Mon</h1>
+      <p>High: {{ Math.floor(((high - 273.15) * 9 / 5 + 32)) }}°</p>
+      <p>Low: {{ Math.floor(((low - 273.15) * 9 / 5 + 32)) }}°</p>
+    </div>
+    
+    <div>
+      <h1>Tue</h1>
+      <p>High</p>
+      <p>Low</p>
+    </div>
+    
+    <div>
+      <h1>Wed</h1>
+      <p>High</p>
+      <p>Low</p>
+    </div>
+    
+    <div>
+      <h1>Thu</h1>
+      <p>High</p>
+      <p>Low</p>
+    </div>
+    
+    <div>
+      <h1>Fri</h1>
+      <p>High</p>
+      <p>Low</p>
+    </div>
+    
+    <div>
+      <h1>Sat</h1>
+      <p>High</p>
+      <p>Low</p>
+    </div>
+  </div>
+</div>
+
