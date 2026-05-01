@@ -1,2 +1,2 @@
 # Weather App
-[Demo:](https://baewatch.netlify.app/)
+[Demo](https://baewatch.netlify.app/)
