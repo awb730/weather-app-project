@@ -21,7 +21,7 @@ interface SuggestionResponse {
 })
 
 export class WeatherService {
-    private baseUrl = "https://baewatch-backend-app.onrender.com/api/weather/search";
+    private baseUrl = "https://baewatch-backend-app.onrender.com/api/weather";
 
     constructor(private http: HttpClient) {}
 
