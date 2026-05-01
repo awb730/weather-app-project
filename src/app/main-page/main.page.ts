@@ -58,9 +58,8 @@ export class MainPage {
       this.savedService.savedLocations$.subscribe(locations => {
         this.currentWeatherIndex = locations.indexOf({city: currentCity, state: currentState});
       });
+      this.isSaved = true;
     });
-
-    this.isSaved = true;
   }
 
   delSaveNoti() {
