@@ -8,7 +8,7 @@ dotenv.config({ path: "./.env" });
 const app = express()
 
 app.use(cors({
-  origin: "http://localhost:4200",
+  origin: ['http://localhost:4200', 'https://baewatch.netlify.app'],
   credentials: true
 }));
 
